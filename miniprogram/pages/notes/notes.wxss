@@ -1,0 +1,38 @@
+.filter-group {
+  margin-top: 24rpx;
+}
+
+.note-card {
+  margin-top: 24rpx;
+}
+
+.note-title {
+  display: block;
+  font-size: 34rpx;
+  font-weight: 700;
+}
+
+.note-meta {
+  display: block;
+  margin-top: 10rpx;
+  font-size: 24rpx;
+  color: var(--muted-color);
+}
+
+.note-content {
+  display: block;
+  margin-top: 18rpx;
+  font-size: 28rpx;
+  line-height: 1.7;
+  color: var(--text-color);
+}
+
+.delete-btn {
+  width: 100%;
+  margin-top: 24rpx;
+  border: none;
+  border-radius: 999rpx;
+  background: #f7dede;
+  color: var(--danger-color);
+  font-size: 28rpx;
+}

@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="panel">
+    <text class="section-title">Notebook</text>
+    <text class="section-desc">Search, filter, browse, edit, and delete your local study notes.</text>
+
+    <view class="filter-group">
+      <text class="field-label">Keyword</text>
+      <input
+        class="input"
+        placeholder="Search by title or content"
+        value="{{keyword}}"
+        bindinput="onKeywordInput"
+      />
+    </view>
+
+    <view class="filter-group">
+      <text class="field-label">Category</text>
+      <picker mode="selector" range="{{categoryOptions}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="picker-box">{{categoryOptions[categoryIndex]}}</view>
+      </picker>
+    </view>
+
+    <button class="primary-btn" bindtap="createManualNote">New Empty Note</button>
+    <button class="secondary-btn" bindtap="clearFilters">Clear Filters</button>
+  </view>
+
+  <block wx:if="{{notes.length}}">
+    <view class="panel note-card" wx:for="{{notes}}" wx:key="id">
+      <view data-id="{{item.id}}" bindtap="openDetail">
+        <text class="note-title">{{item.title}}</text>
+        <text class="note-meta">{{item.category}} | {{item.displayTime}}</text>
+        <text class="note-content">{{item.preview}}</text>
+      </view>
+      <button class="delete-btn" data-id="{{item.id}}" bindtap="deleteNote">Delete</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="panel">
+      <text class="empty-text">No matching notes found</text>
+    </view>
+  </block>
+</view>

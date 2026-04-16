@@ -1,0 +1,34 @@
+.note-title {
+  display: block;
+  font-size: 42rpx;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.note-meta {
+  display: block;
+  margin-top: 16rpx;
+  font-size: 24rpx;
+  color: var(--muted-color);
+}
+
+.preview-image {
+  width: 100%;
+  height: 360rpx;
+  margin-top: 28rpx;
+  border-radius: 24rpx;
+  background: #efe7da;
+}
+
+.note-content {
+  display: block;
+  margin-top: 28rpx;
+  font-size: 30rpx;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}
+
+.detail-delete {
+  color: var(--danger-color);
+  border-color: #d9a4a4;
+}

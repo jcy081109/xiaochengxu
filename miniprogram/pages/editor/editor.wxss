@@ -1,0 +1,11 @@
+.field {
+  margin-top: 28rpx;
+}
+
+.preview-image {
+  width: 100%;
+  height: 340rpx;
+  margin-top: 24rpx;
+  border-radius: 24rpx;
+  background: #efe7da;
+}

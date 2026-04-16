@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/home/home",
+    "pages/ocr/ocr",
+    "pages/editor/editor",
+    "pages/notes/notes",
+    "pages/note-detail/note-detail",
+    "pages/mistakes/mistakes"
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "Study Assistant",
+    "navigationBarBackgroundColor": "#f7f4ee",
+    "backgroundColor": "#f7f4ee",
+    "backgroundTextStyle": "light"
+  },
+  "style": "v2",
+  "componentFramework": "glass-easel",
+  "lazyCodeLoading": "requiredComponents"
+}

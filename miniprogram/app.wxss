@@ -1,0 +1,102 @@
+page {
+  --bg-color: #f7f4ee;
+  --panel-color: #fffdf8;
+  --primary-color: #1f5c4a;
+  --border-color: #dfd6c7;
+  --text-color: #2d241d;
+  --muted-color: #7b6f63;
+  --danger-color: #b94b4b;
+
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-size: 16px;
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+view,
+text,
+button,
+input,
+textarea,
+image {
+  box-sizing: border-box;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 32rpx;
+}
+
+.panel {
+  background: var(--panel-color);
+  border: 2rpx solid var(--border-color);
+  border-radius: 28rpx;
+  padding: 28rpx;
+  box-shadow: 0 16rpx 36rpx rgba(45, 36, 29, 0.06);
+}
+
+.section-title {
+  display: block;
+  font-size: 38rpx;
+  font-weight: 700;
+  margin-bottom: 12rpx;
+}
+
+.section-desc {
+  display: block;
+  font-size: 26rpx;
+  color: var(--muted-color);
+  line-height: 1.6;
+}
+
+.primary-btn {
+  width: 100%;
+  margin-top: 24rpx;
+  border: none;
+  border-radius: 999rpx;
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.secondary-btn {
+  width: 100%;
+  margin-top: 20rpx;
+  border-radius: 999rpx;
+  border: 2rpx solid var(--primary-color);
+  background: transparent;
+  color: var(--primary-color);
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.field-label {
+  display: block;
+  margin-bottom: 12rpx;
+  font-size: 26rpx;
+  color: var(--muted-color);
+}
+
+.input,
+.textarea,
+.picker-box {
+  width: 100%;
+  padding: 22rpx 24rpx;
+  border: 2rpx solid var(--border-color);
+  border-radius: 20rpx;
+  background: #ffffff;
+  font-size: 30rpx;
+}
+
+.textarea {
+  min-height: 320rpx;
+}
+
+.empty-text {
+  display: block;
+  text-align: center;
+  color: var(--muted-color);
+  font-size: 28rpx;
+  padding: 48rpx 0;
+}

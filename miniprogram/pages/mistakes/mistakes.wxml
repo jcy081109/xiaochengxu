@@ -1,0 +1,8 @@
+<view class="page">
+  <view class="panel">
+    <text class="section-title">Mistakes Module</text>
+    <text class="section-desc">
+      The current version focuses on the Notebook module. This page is reserved for question capture, analysis, tags, and review features.
+    </text>
+  </view>
+</view>

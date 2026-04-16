@@ -1,0 +1,31 @@
+.preview-image {
+  width: 100%;
+  height: 460rpx;
+  margin-top: 24rpx;
+  border-radius: 24rpx;
+  background: #efe7da;
+}
+
+.status-panel {
+  margin-top: 24rpx;
+}
+
+.error-panel {
+  border-color: #e8b0b0;
+  background: #fff8f8;
+}
+
+.status-tip {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  color: var(--muted-color);
+}
+
+.ocr-preview {
+  display: block;
+  margin-top: 22rpx;
+  font-size: 30rpx;
+  line-height: 1.8;
+  white-space: pre-wrap;
+}

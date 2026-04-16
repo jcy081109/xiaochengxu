@@ -1,0 +1,22 @@
+<view class="page">
+  <block wx:if="{{note}}">
+    <view class="panel">
+      <text class="note-title">{{note.title}}</text>
+      <text class="note-meta">{{note.category}} | {{displayTime}}</text>
+
+      <block wx:if="{{note.imagePath}}">
+        <image class="preview-image" src="{{note.imagePath}}" mode="aspectFit"></image>
+      </block>
+
+      <text class="note-content">{{note.content}}</text>
+      <button class="primary-btn" bindtap="editNote">Edit Note</button>
+      <button class="secondary-btn detail-delete" bindtap="deleteNote">Delete Note</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="panel">
+      <text class="empty-text">Note not found</text>
+    </view>
+  </block>
+</view>

@@ -1,0 +1,39 @@
+<view class="page">
+  <view class="panel">
+    <text class="section-title">Image Input</text>
+    <text class="section-desc">
+      Choose a photo or screenshot, upload it to the local Flask service, and extract text with OCR.
+    </text>
+
+    <button class="primary-btn" bindtap="chooseImage">Choose Image</button>
+
+    <block wx:if="{{imagePath}}">
+      <image class="preview-image" src="{{imagePath}}" mode="aspectFit"></image>
+      <button class="primary-btn" loading="{{loading}}" bindtap="recognizeImage">Run OCR</button>
+      <button class="secondary-btn" bindtap="clearResult">Clear Result</button>
+    </block>
+
+    <block wx:else>
+      <text class="empty-text">No image selected yet</text>
+    </block>
+  </view>
+
+  <block wx:if="{{errorMsg}}">
+    <view class="panel status-panel error-panel">
+      <text class="section-title">OCR Failed</text>
+      <text class="section-desc">{{errorMsg}}</text>
+      <block wx:if="{{serverMessage}}">
+        <text class="status-tip">{{serverMessage}}</text>
+      </block>
+    </view>
+  </block>
+
+  <block wx:if="{{ocrText}}">
+    <view class="panel status-panel">
+      <text class="section-title">OCR Result</text>
+      <text class="section-desc">{{serverMessage}}</text>
+      <text class="ocr-preview">{{ocrText}}</text>
+      <button class="primary-btn" bindtap="goToEditor">Save As Note</button>
+    </view>
+  </block>
+</view>

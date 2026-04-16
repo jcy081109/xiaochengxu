@@ -1,0 +1,26 @@
+<view class="page home-page">
+  <view class="hero panel">
+    <text class="hero-eyebrow">Study Assistant</text>
+    <text class="hero-title">Turn Images Into Structured Study Notes</text>
+    <text class="section-desc">
+      This project is split into two modules: Notebook and Mistakes. The Notebook flow is available now, while the Mistakes module is reserved for the next phase.
+    </text>
+  </view>
+
+  <view class="panel module-panel">
+    <text class="section-title">Notebook</text>
+    <text class="section-desc">
+      Extract text from class photos, screenshots, and document images, then save them as editable study notes.
+    </text>
+    <button class="primary-btn" bindtap="goToOcr">Start OCR</button>
+    <button class="secondary-btn" bindtap="goToNotes">Open Notebook</button>
+  </view>
+
+  <view class="panel module-panel waiting-panel">
+    <text class="section-title">Mistakes</text>
+    <text class="section-desc">
+      This module is reserved for wrong-question collection, explanations, tags, and review management.
+    </text>
+    <button class="secondary-btn" bindtap="goToMistakes">View Plan</button>
+  </view>
+</view>
