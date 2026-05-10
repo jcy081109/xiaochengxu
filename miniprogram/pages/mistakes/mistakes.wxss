@@ -1,5 +1,64 @@
-.page {
-  background:
-    radial-gradient(circle at top right, rgba(31, 92, 74, 0.12), transparent 28%),
-    linear-gradient(180deg, #f7f4ee 0%, #f7f4ee 100%);
+.filter-group {
+  margin-top: 24rpx;
+}
+
+.mistake-card,
+.empty-panel {
+  margin-top: 24rpx;
+}
+
+.mistake-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+}
+
+.mistake-subject {
+  font-size: 28rpx;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.mistake-status {
+  flex-shrink: 0;
+  padding: 8rpx 18rpx;
+  border-radius: 999rpx;
+  font-size: 22rpx;
+}
+
+.status-done {
+  background: #e1efe7;
+  color: var(--primary-color);
+}
+
+.status-open {
+  background: #fff0d7;
+  color: #9a6425;
+}
+
+.mistake-question {
+  display: block;
+  margin-top: 18rpx;
+  font-size: 31rpx;
+  line-height: 1.6;
+  font-weight: 700;
+}
+
+.mistake-meta {
+  display: block;
+  margin-top: 14rpx;
+  font-size: 24rpx;
+  line-height: 1.5;
+  color: var(--muted-color);
+}
+
+.delete-btn {
+  width: 100%;
+  margin-top: 18rpx;
+  border: none;
+  border-radius: 999rpx;
+  background: #f7dede;
+  color: var(--danger-color);
+  font-size: 28rpx;
 }

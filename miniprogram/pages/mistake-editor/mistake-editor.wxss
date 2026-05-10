@@ -1,0 +1,18 @@
+.field {
+  margin-top: 28rpx;
+}
+
+.compact-textarea {
+  min-height: 220rpx;
+}
+
+.switch-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 28rpx;
+}
+
+.switch-label {
+  margin-bottom: 0;
+}

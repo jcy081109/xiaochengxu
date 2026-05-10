@@ -53,15 +53,15 @@ def extract_lines(raw_result: Any) -> list[str]:
 def recognize_image(image_path: str) -> dict:
     ocr = get_ocr_instance()
     if ocr is None:
-        message = "PaddleOCR is not installed or failed to initialize. Install paddlepaddle and paddleocr first."
+        message = "PaddleOCR 未安装或初始化失败，请先安装 paddlepaddle 和 paddleocr。"
         if _OCR_ERROR is not None:
-            message = f"{message} Error: {_OCR_ERROR}"
+            message = f"{message} 错误信息：{_OCR_ERROR}"
         return {
             "success": False,
             "text": "",
             "lines": [],
             "message": message,
-            "engine": "unavailable",
+            "engine": "不可用",
         }
 
     try:
@@ -74,7 +74,7 @@ def recognize_image(image_path: str) -> dict:
                 "success": False,
                 "text": "",
                 "lines": [],
-                "message": "No readable text was detected in the image.",
+                "message": "图片中未识别到可读文字。",
                 "engine": "paddleocr",
             }
 
@@ -82,7 +82,7 @@ def recognize_image(image_path: str) -> dict:
             "success": True,
             "text": text,
             "lines": lines,
-            "message": "OCR success",
+            "message": "OCR 识别成功",
             "engine": "paddleocr",
         }
     except Exception as exc:  # pragma: no cover
@@ -90,6 +90,6 @@ def recognize_image(image_path: str) -> dict:
             "success": False,
             "text": "",
             "lines": [],
-            "message": f"OCR failed: {exc}",
+            "message": f"OCR 识别失败：{exc}",
             "engine": "paddleocr",
         }

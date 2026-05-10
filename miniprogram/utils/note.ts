@@ -15,7 +15,7 @@ export interface SaveNoteInput {
   imagePath?: string
 }
 
-export const NOTE_CATEGORIES = ['Class Notes', 'Knowledge', 'Reading', 'Lab', 'Other']
+export const NOTE_CATEGORIES = ['课堂笔记', '知识点', '阅读摘录', '实验记录', '其他']
 
 const NOTES_STORAGE_KEY = 'notebook_notes'
 
@@ -81,7 +81,7 @@ export function searchNotes(keyword: string, category: string): NoteItem[] {
   const normalizedKeyword = keyword.trim().toLowerCase()
 
   return getNotes().filter((note) => {
-    const categoryMatched = category === 'All' || note.category === category
+    const categoryMatched = category === '全部' || note.category === category
     const keywordMatched =
       !normalizedKeyword ||
       note.title.toLowerCase().includes(normalizedKeyword) ||

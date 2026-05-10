@@ -1,27 +1,27 @@
 <view class="page">
   <view class="panel">
-    <text class="section-title">Notebook</text>
-    <text class="section-desc">Search, filter, browse, edit, and delete your local study notes.</text>
+    <text class="section-title">学习笔记</text>
+    <text class="section-desc">搜索、筛选、查看、编辑和删除本地学习笔记。</text>
 
     <view class="filter-group">
-      <text class="field-label">Keyword</text>
+      <text class="field-label">关键词</text>
       <input
         class="input"
-        placeholder="Search by title or content"
+        placeholder="按标题或内容搜索"
         value="{{keyword}}"
         bindinput="onKeywordInput"
       />
     </view>
 
     <view class="filter-group">
-      <text class="field-label">Category</text>
+      <text class="field-label">分类</text>
       <picker mode="selector" range="{{categoryOptions}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
         <view class="picker-box">{{categoryOptions[categoryIndex]}}</view>
       </picker>
     </view>
 
-    <button class="primary-btn" bindtap="createManualNote">New Empty Note</button>
-    <button class="secondary-btn" bindtap="clearFilters">Clear Filters</button>
+    <button class="primary-btn" bindtap="createManualNote">新建空白笔记</button>
+    <button class="secondary-btn" bindtap="clearFilters">清空筛选</button>
   </view>
 
   <block wx:if="{{notes.length}}">
@@ -31,13 +31,13 @@
         <text class="note-meta">{{item.category}} | {{item.displayTime}}</text>
         <text class="note-content">{{item.preview}}</text>
       </view>
-      <button class="delete-btn" data-id="{{item.id}}" bindtap="deleteNote">Delete</button>
+      <button class="delete-btn" data-id="{{item.id}}" bindtap="deleteNote">删除</button>
     </view>
   </block>
 
   <block wx:else>
     <view class="panel">
-      <text class="empty-text">No matching notes found</text>
+      <text class="empty-text">没有找到匹配的笔记</text>
     </view>
   </block>
 </view>

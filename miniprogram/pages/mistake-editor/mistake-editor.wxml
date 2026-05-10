@@ -1,0 +1,60 @@
+<view class="page">
+  <view class="panel">
+    <text class="section-title">{{isEdit ? '编辑错题' : '新增错题'}}</text>
+    <text class="section-desc">记录题目、答案、解析、标签和掌握状态。</text>
+
+    <view class="field">
+      <text class="field-label">科目</text>
+      <picker mode="selector" range="{{subjectOptions}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+        <view class="picker-box">{{subjectOptions[subjectIndex]}}</view>
+      </picker>
+    </view>
+
+    <view class="field">
+      <text class="field-label">题目</text>
+      <textarea
+        class="textarea"
+        placeholder="粘贴 OCR 文本或手动输入题目"
+        value="{{question}}"
+        bindinput="onQuestionInput"
+      />
+    </view>
+
+    <view class="field">
+      <text class="field-label">答案</text>
+      <textarea
+        class="textarea compact-textarea"
+        placeholder="正确答案"
+        value="{{answer}}"
+        bindinput="onAnswerInput"
+      />
+    </view>
+
+    <view class="field">
+      <text class="field-label">解析</text>
+      <textarea
+        class="textarea compact-textarea"
+        placeholder="错误原因和解题思路"
+        value="{{analysis}}"
+        bindinput="onAnalysisInput"
+      />
+    </view>
+
+    <view class="field">
+      <text class="field-label">标签</text>
+      <input
+        class="input"
+        placeholder="用空格或逗号分隔标签"
+        value="{{tags}}"
+        bindinput="onTagsInput"
+      />
+    </view>
+
+    <view class="switch-row">
+      <text class="field-label switch-label">已掌握</text>
+      <switch checked="{{mastered}}" bindchange="onMasteredChange" />
+    </view>
+
+    <button class="primary-btn" bindtap="saveMistake">{{isEdit ? '保存修改' : '保存错题'}}</button>
+  </view>
+</view>

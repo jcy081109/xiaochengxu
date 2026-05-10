@@ -55,8 +55,8 @@ Page({
     }
 
     wx.showModal({
-      title: 'Delete Note',
-      content: 'This note cannot be recovered after deletion. Continue?',
+      title: '删除笔记',
+      content: '删除后无法恢复，确定继续吗？',
       success: (res) => {
         if (!res.confirm) {
           return

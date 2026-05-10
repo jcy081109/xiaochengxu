@@ -5,6 +5,7 @@ import {
   getNoteById,
   updateNote
 } from '../../utils/note'
+import { saveTempFile } from '../../utils/file'
 
 Page({
   data: {
@@ -24,7 +25,7 @@ Page({
       const note = getNoteById(noteId)
       if (!note) {
         wx.showToast({
-          title: 'Note not found',
+          title: '未找到笔记',
           icon: 'none'
         })
         return
@@ -69,12 +70,12 @@ Page({
     })
   },
 
-  saveNote() {
+  async saveNote() {
     const { noteId, title, categoryOptions, categoryIndex, content, imagePath, isEdit } = this.data
 
     if (!title.trim()) {
       wx.showToast({
-        title: 'Enter a title',
+        title: '请输入标题',
         icon: 'none'
       })
       return
@@ -82,31 +83,32 @@ Page({
 
     if (!content.trim()) {
       wx.showToast({
-        title: 'Enter note content',
+        title: '请输入笔记内容',
         icon: 'none'
       })
       return
     }
 
+    const savedImagePath = await saveTempFile(imagePath)
     const payload = {
       title: title.trim(),
       category: categoryOptions[categoryIndex],
       content: content.trim(),
-      imagePath
+      imagePath: savedImagePath
     }
 
     const note = isEdit ? updateNote(noteId, payload) : createNote(payload)
 
     if (!note) {
       wx.showToast({
-        title: 'Save failed',
+        title: '保存失败',
         icon: 'none'
       })
       return
     }
 
     wx.showToast({
-      title: isEdit ? 'Updated' : 'Saved',
+      title: isEdit ? '已更新' : '已保存',
       icon: 'success'
     })
 

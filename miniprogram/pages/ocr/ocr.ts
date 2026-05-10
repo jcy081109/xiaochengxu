@@ -33,7 +33,7 @@ Page({
 
     if (!imagePath) {
       wx.showToast({
-        title: 'Select an image first',
+        title: '请先选择图片',
         icon: 'none'
       })
       return
@@ -52,8 +52,8 @@ Page({
 
       if (!result.success) {
         this.setData({
-          errorMsg: result.message || 'OCR failed',
-          serverMessage: result.engine ? `Engine: ${result.engine}` : ''
+          errorMsg: result.message || 'OCR 识别失败',
+          serverMessage: result.engine ? `识别引擎：${result.engine}` : ''
         })
         return
       }
@@ -61,11 +61,11 @@ Page({
       this.setData({
         ocrText: result.text,
         ocrLines: result.lines || [],
-        serverMessage: result.message || 'OCR finished'
+        serverMessage: result.message || 'OCR 识别完成'
       })
     } catch (_error) {
       this.setData({
-        errorMsg: 'Cannot connect to the local Flask server. Make sure backend is running.'
+        errorMsg: '无法连接本地 Flask 服务，请确认后端已经启动。'
       })
     } finally {
       this.setData({
@@ -79,7 +79,7 @@ Page({
 
     if (!ocrText.trim()) {
       wx.showToast({
-        title: 'Run OCR first',
+        title: '请先完成识别',
         icon: 'none'
       })
       return
@@ -87,6 +87,22 @@ Page({
 
     wx.navigateTo({
       url: `/pages/editor/editor?imagePath=${encodeURIComponent(imagePath)}&content=${encodeURIComponent(ocrText)}`
+    })
+  },
+
+  goToMistakeEditor() {
+    const { ocrText } = this.data
+
+    if (!ocrText.trim()) {
+      wx.showToast({
+        title: '请先完成识别',
+        icon: 'none'
+      })
+      return
+    }
+
+    wx.navigateTo({
+      url: `/pages/mistake-editor/mistake-editor?question=${encodeURIComponent(ocrText)}`
     })
   },
 

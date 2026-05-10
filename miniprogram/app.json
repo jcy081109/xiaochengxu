@@ -5,11 +5,13 @@
     "pages/editor/editor",
     "pages/notes/notes",
     "pages/note-detail/note-detail",
-    "pages/mistakes/mistakes"
+    "pages/mistakes/mistakes",
+    "pages/mistake-editor/mistake-editor",
+    "pages/mistake-detail/mistake-detail"
   ],
   "window": {
     "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Study Assistant",
+    "navigationBarTitleText": "学习助手",
     "navigationBarBackgroundColor": "#f7f4ee",
     "backgroundColor": "#f7f4ee",
     "backgroundTextStyle": "light"

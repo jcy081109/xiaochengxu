@@ -1,0 +1,39 @@
+<view class="page">
+  <block wx:if="{{mistake}}">
+    <view class="panel">
+      <view class="detail-header">
+        <text class="detail-subject">{{mistake.subject}}</text>
+        <text class="detail-status {{mistake.mastered ? 'status-done' : 'status-open'}}">{{masteredLabel}}</text>
+      </view>
+
+      <text class="detail-meta">{{tagsText}} | {{displayTime}}</text>
+
+      <view class="section-block">
+        <text class="block-title">题目</text>
+        <text class="block-content">{{mistake.question}}</text>
+      </view>
+
+      <view class="section-block">
+        <text class="block-title">答案</text>
+        <text class="block-content">{{mistake.answer}}</text>
+      </view>
+
+      <view class="section-block">
+        <text class="block-title">解析</text>
+        <text class="block-content">{{mistake.analysis || '暂无解析'}}</text>
+      </view>
+
+      <button class="primary-btn" bindtap="editMistake">编辑错题</button>
+      <button class="secondary-btn" bindtap="toggleMastered">
+        {{mistake.mastered ? '标记为未掌握' : '标记为已掌握'}}
+      </button>
+      <button class="secondary-btn detail-delete" bindtap="deleteMistake">删除错题</button>
+    </view>
+  </block>
+
+  <block wx:else>
+    <view class="panel">
+      <text class="empty-text">未找到错题</text>
+    </view>
+  </block>
+</view>

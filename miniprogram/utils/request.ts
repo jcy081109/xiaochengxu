@@ -23,6 +23,16 @@ export function uploadImageForOcr(filePath: string): Promise<OcrResponse> {
       filePath,
       name: 'file',
       success: (res) => {
+        if (res.statusCode < 200 || res.statusCode >= 300) {
+          reject(new Error(`OCR 请求失败，状态码：${res.statusCode}`))
+          return
+        }
+
+        if (!res.data) {
+          reject(new Error('OCR 服务返回了空响应'))
+          return
+        }
+
         try {
           const data = JSON.parse(res.data) as OcrResponse
           resolve(data)

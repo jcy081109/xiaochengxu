@@ -1,26 +1,26 @@
 <view class="page">
   <view class="panel">
-    <text class="section-title">Image Input</text>
+    <text class="section-title">图片输入</text>
     <text class="section-desc">
-      Choose a photo or screenshot, upload it to the local Flask service, and extract text with OCR.
+      选择照片或截图，上传到本地 Flask 服务，并使用 OCR 提取文字。
     </text>
 
-    <button class="primary-btn" bindtap="chooseImage">Choose Image</button>
+    <button class="primary-btn" bindtap="chooseImage">选择图片</button>
 
     <block wx:if="{{imagePath}}">
       <image class="preview-image" src="{{imagePath}}" mode="aspectFit"></image>
-      <button class="primary-btn" loading="{{loading}}" bindtap="recognizeImage">Run OCR</button>
-      <button class="secondary-btn" bindtap="clearResult">Clear Result</button>
+      <button class="primary-btn" loading="{{loading}}" bindtap="recognizeImage">开始识别</button>
+      <button class="secondary-btn" bindtap="clearResult">清空结果</button>
     </block>
 
     <block wx:else>
-      <text class="empty-text">No image selected yet</text>
+      <text class="empty-text">还没有选择图片</text>
     </block>
   </view>
 
   <block wx:if="{{errorMsg}}">
     <view class="panel status-panel error-panel">
-      <text class="section-title">OCR Failed</text>
+      <text class="section-title">识别失败</text>
       <text class="section-desc">{{errorMsg}}</text>
       <block wx:if="{{serverMessage}}">
         <text class="status-tip">{{serverMessage}}</text>
@@ -30,10 +30,11 @@
 
   <block wx:if="{{ocrText}}">
     <view class="panel status-panel">
-      <text class="section-title">OCR Result</text>
+      <text class="section-title">识别结果</text>
       <text class="section-desc">{{serverMessage}}</text>
       <text class="ocr-preview">{{ocrText}}</text>
-      <button class="primary-btn" bindtap="goToEditor">Save As Note</button>
+      <button class="primary-btn" bindtap="goToEditor">保存为笔记</button>
+      <button class="secondary-btn" bindtap="goToMistakeEditor">保存为错题</button>
     </view>
   </block>
 </view>

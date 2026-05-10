@@ -9,14 +9,14 @@
       </block>
 
       <text class="note-content">{{note.content}}</text>
-      <button class="primary-btn" bindtap="editNote">Edit Note</button>
-      <button class="secondary-btn detail-delete" bindtap="deleteNote">Delete Note</button>
+      <button class="primary-btn" bindtap="editNote">编辑笔记</button>
+      <button class="secondary-btn detail-delete" bindtap="deleteNote">删除笔记</button>
     </view>
   </block>
 
   <block wx:else>
     <view class="panel">
-      <text class="empty-text">Note not found</text>
+      <text class="empty-text">未找到笔记</text>
     </view>
   </block>
 </view>

@@ -1,8 +1,8 @@
 <view class="page">
   <view class="panel">
-    <text class="section-title">{{isEdit ? 'Edit Note' : 'Create Note'}}</text>
+    <text class="section-title">{{isEdit ? '编辑笔记' : '新建笔记'}}</text>
     <text class="section-desc">
-      Review the OCR result, fix mistakes, add a title and category, then save it as a structured note.
+      检查 OCR 识别结果，修正错误，补充标题和分类后保存为结构化笔记。
     </text>
 
     <block wx:if="{{imagePath}}">
@@ -10,32 +10,32 @@
     </block>
 
     <view class="field">
-      <text class="field-label">Title</text>
+      <text class="field-label">标题</text>
       <input
         class="input"
-        placeholder="Example: Operating System Lecture Notes"
+        placeholder="例如：操作系统课堂笔记"
         value="{{title}}"
         bindinput="onTitleInput"
       />
     </view>
 
     <view class="field">
-      <text class="field-label">Category</text>
+      <text class="field-label">分类</text>
       <picker mode="selector" range="{{categoryOptions}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
         <view class="picker-box">{{categoryOptions[categoryIndex]}}</view>
       </picker>
     </view>
 
     <view class="field">
-      <text class="field-label">Content</text>
+      <text class="field-label">内容</text>
       <textarea
         class="textarea"
-        placeholder="OCR text will be filled in automatically, but you can also type or revise it here."
+        placeholder="OCR 文本会自动填入，也可以在这里手动输入或修改。"
         value="{{content}}"
         bindinput="onContentInput"
       />
     </view>
 
-    <button class="primary-btn" bindtap="saveNote">{{isEdit ? 'Save Changes' : 'Save Note'}}</button>
+    <button class="primary-btn" bindtap="saveNote">{{isEdit ? '保存修改' : '保存笔记'}}</button>
   </view>
 </view>

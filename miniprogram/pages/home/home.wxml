@@ -1,26 +1,26 @@
 <view class="page home-page">
   <view class="hero panel">
-    <text class="hero-eyebrow">Study Assistant</text>
-    <text class="hero-title">Turn Images Into Structured Study Notes</text>
+    <text class="hero-eyebrow">学习助手</text>
+    <text class="hero-title">把图片整理成结构化学习资料</text>
     <text class="section-desc">
-      This project is split into two modules: Notebook and Mistakes. The Notebook flow is available now, while the Mistakes module is reserved for the next phase.
+      项目包含笔记和错题两个模块，可以识别图片文字、整理学习笔记，并记录错题解析与掌握状态。
     </text>
   </view>
 
   <view class="panel module-panel">
-    <text class="section-title">Notebook</text>
+    <text class="section-title">学习笔记</text>
     <text class="section-desc">
-      Extract text from class photos, screenshots, and document images, then save them as editable study notes.
+      从课堂照片、截图和文档图片中提取文字，整理后保存为可编辑的学习笔记。
     </text>
-    <button class="primary-btn" bindtap="goToOcr">Start OCR</button>
-    <button class="secondary-btn" bindtap="goToNotes">Open Notebook</button>
+    <button class="primary-btn" bindtap="goToOcr">开始识别</button>
+    <button class="secondary-btn" bindtap="goToNotes">打开笔记</button>
   </view>
 
   <view class="panel module-panel waiting-panel">
-    <text class="section-title">Mistakes</text>
+    <text class="section-title">错题本</text>
     <text class="section-desc">
-      This module is reserved for wrong-question collection, explanations, tags, and review management.
+      收集错题、答案、解析和标签，按掌握状态进行复习管理。
     </text>
-    <button class="secondary-btn" bindtap="goToMistakes">View Plan</button>
+    <button class="secondary-btn" bindtap="goToMistakes">进入错题本</button>
   </view>
 </view>

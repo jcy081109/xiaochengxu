@@ -32,14 +32,14 @@ def build_json(payload: dict, status_code: int = 200):
 
 @app.get("/ping")
 def ping():
-    return build_json({"success": True, "message": "server running"})
+    return build_json({"success": True, "message": "服务运行中"})
 
 
 @app.post("/ocr")
 def ocr():
     file = request.files.get("file")
     if file is None:
-        return build_json({"success": False, "message": "missing file field"}, 400)
+        return build_json({"success": False, "message": "缺少 file 文件字段"}, 400)
 
     original_name = secure_filename(file.filename or "")
     extension = Path(original_name).suffix.lower()
@@ -50,7 +50,7 @@ def ocr():
                 "success": False,
                 "text": "",
                 "lines": [],
-                "message": "unsupported image format",
+                "message": "不支持的图片格式",
             },
             400,
         )
