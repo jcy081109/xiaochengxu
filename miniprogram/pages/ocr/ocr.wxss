@@ -81,30 +81,14 @@
   overflow: hidden;
 }
 
-.formatted-result {
-  padding: 20rpx 22rpx 24rpx;
-}
-
-.ocr-line {
+.ocr-preview {
   display: block;
-  padding: 10rpx 0;
+  padding: 22rpx;
   color: var(--text-color);
   font-size: 28rpx;
-  line-height: 1.7;
+  line-height: 1.75;
+  white-space: pre-wrap;
   word-break: break-word;
-}
-
-.ocr-heading {
-  margin-top: 10rpx;
-  padding-top: 18rpx;
-  color: var(--primary-color);
-  font-size: 30rpx;
-  font-weight: 800;
-}
-
-.ocr-list {
-  padding-left: 18rpx;
-  border-left: 6rpx solid var(--primary-soft);
 }
 
 .result-actions {

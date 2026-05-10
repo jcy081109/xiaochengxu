@@ -49,15 +49,7 @@
         <text class="pill">{{ocrLines.length}} 行</text>
       </view>
       <scroll-view class="ocr-scroll" scroll-y>
-        <view class="formatted-result">
-          <view
-            class="ocr-line ocr-{{item.type}}"
-            wx:for="{{formattedLines}}"
-            wx:key="id"
-          >
-            <text>{{item.text}}</text>
-          </view>
-        </view>
+        <text class="ocr-preview">{{ocrText}}</text>
       </scroll-view>
       <view class="result-actions">
         <button class="primary-btn" bindtap="goToEditor">保存为笔记</button>

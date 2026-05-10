@@ -1,12 +1,6 @@
 import { uploadImageForOcr } from '../../utils/request'
 import { saveOcrHistory } from '../../utils/ocr-history'
 
-interface FormattedOcrLine {
-  id: string
-  text: string
-  type: 'heading' | 'list' | 'plain'
-}
-
 Page({
   recognizing: false,
 
@@ -14,7 +8,6 @@ Page({
     imagePath: '',
     ocrText: '',
     ocrLines: [] as string[],
-    formattedLines: [] as FormattedOcrLine[],
     errorMsg: '',
     serverMessage: ''
   },
@@ -30,7 +23,6 @@ Page({
           imagePath,
           ocrText: '',
           ocrLines: [],
-          formattedLines: [],
           errorMsg: '',
           serverMessage: ''
         })
@@ -67,8 +59,7 @@ Page({
           errorMsg: result.message || 'OCR 识别失败',
           serverMessage: result.engine ? `识别引擎：${result.engine}` : '',
           ocrText: '',
-          ocrLines: [],
-          formattedLines: []
+          ocrLines: []
         })
         return
       }
@@ -76,49 +67,22 @@ Page({
       this.setData({
         ocrText: result.text,
         ocrLines: result.lines || [],
-        formattedLines: this.formatOcrLines(result.lines || result.text.split('\n')),
         serverMessage: result.message || 'OCR 识别完成',
         errorMsg: ''
       })
       saveOcrHistory(result.text, imagePath)
-    } catch (_error) {
+    } catch (error) {
+      const message = error instanceof Error ? error.message : '无法连接本地 Flask 服务，请确认后端已经启动。'
       this.setData({
-        errorMsg: '无法连接本地 Flask 服务，请确认后端已经启动。',
+        errorMsg: message,
         serverMessage: '',
         ocrText: '',
-        ocrLines: [],
-        formattedLines: []
+        ocrLines: []
       })
     } finally {
       this.recognizing = false
       wx.hideLoading()
     }
-  },
-
-  formatOcrLines(lines: string[]): FormattedOcrLine[] {
-    return lines
-      .map((line) => line.trim())
-      .filter((line) => line.length > 0)
-      .map((line, index) => ({
-        id: `${index}-${line.slice(0, 12)}`,
-        text: line,
-        type: this.detectLineType(line)
-      }))
-  },
-
-  detectLineType(line: string): FormattedOcrLine['type'] {
-    if (/^第?[一二三四五六七八九十\d]+[、.．)]/.test(line) || /^[A-Za-z][.．、)]/.test(line)) {
-      return 'list'
-    }
-
-    if (
-      line.length <= 24 &&
-      (/[:：]$/.test(line) || /^[一二三四五六七八九十\d]+[.．、]/.test(line))
-    ) {
-      return 'heading'
-    }
-
-    return 'plain'
   },
 
   goToEditor() {
@@ -157,7 +121,6 @@ Page({
     this.setData({
       ocrText: '',
       ocrLines: [],
-      formattedLines: [],
       errorMsg: '',
       serverMessage: ''
     })
