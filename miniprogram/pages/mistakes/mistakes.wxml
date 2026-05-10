@@ -2,7 +2,13 @@
   <view class="panel">
     <text class="section-title">错题本</text>
     <text class="section-desc">记录错题、答案、解析和标签，集中复习未掌握内容。</text>
+    <button class="primary-btn" bindtap="importFromRecords">从记录创建</button>
+    <button class="secondary-btn" bindtap="createFromPhoto">拍照创建</button>
+    <button class="secondary-btn" bindtap="createMistake">手动创建</button>
+  </view>
 
+  <view class="panel filter-panel">
+    <text class="section-title filter-title">筛选</text>
     <view class="filter-group">
       <text class="field-label">关键词</text>
       <input
@@ -27,7 +33,6 @@
       </picker>
     </view>
 
-    <button class="primary-btn" bindtap="createMistake">新增错题</button>
     <button class="secondary-btn" bindtap="clearFilters">清空筛选</button>
   </view>
 

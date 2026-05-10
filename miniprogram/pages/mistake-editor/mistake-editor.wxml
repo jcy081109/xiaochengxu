@@ -1,7 +1,7 @@
 <view class="page">
   <view class="panel">
-    <text class="section-title">{{isEdit ? '编辑错题' : '新增错题'}}</text>
-    <text class="section-desc">记录题目、答案、解析、标签和掌握状态。</text>
+    <text class="section-title">{{isEdit ? '编辑错题' : modeTitle}}</text>
+    <text class="section-desc">{{isEdit ? '修改题目、答案、解析、标签和掌握状态。' : modeDesc}}</text>
 
     <view class="field">
       <text class="field-label">科目</text>
@@ -12,9 +12,31 @@
 
     <view class="field">
       <text class="field-label">题目</text>
+      <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
+        <picker
+          wx:if="{{createMode === 'record' && importRecordOptions.length}}"
+          mode="selector"
+          range="{{importRecordOptions}}"
+          range-key="label"
+          data-field="question"
+          bindchange="onRecordImportChange"
+        >
+          <view class="field-tool-btn">从记录填入</view>
+        </picker>
+        <button wx:elif="{{createMode === 'record'}}" class="field-tool-btn" bindtap="showNoRecordsTip">从记录填入</button>
+        <button
+          wx:if="{{createMode === 'photo'}}"
+          class="field-tool-btn"
+          data-field="question"
+          loading="{{recognizingField === 'question'}}"
+          bindtap="recognizeFieldFromEvent"
+        >
+          拍照识别填入
+        </button>
+      </view>
       <textarea
         class="textarea"
-        placeholder="粘贴 OCR 文本或手动输入题目"
+        placeholder="{{createMode === 'record' ? '从记录填入题目，也可以手动修改' : createMode === 'photo' ? '拍照识别题目，也可以手动修改' : '手动输入题目'}}"
         value="{{question}}"
         bindinput="onQuestionInput"
       />
@@ -22,9 +44,31 @@
 
     <view class="field">
       <text class="field-label">答案</text>
+      <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
+        <picker
+          wx:if="{{createMode === 'record' && importRecordOptions.length}}"
+          mode="selector"
+          range="{{importRecordOptions}}"
+          range-key="label"
+          data-field="answer"
+          bindchange="onRecordImportChange"
+        >
+          <view class="field-tool-btn">从记录填入</view>
+        </picker>
+        <button wx:elif="{{createMode === 'record'}}" class="field-tool-btn" bindtap="showNoRecordsTip">从记录填入</button>
+        <button
+          wx:if="{{createMode === 'photo'}}"
+          class="field-tool-btn"
+          data-field="answer"
+          loading="{{recognizingField === 'answer'}}"
+          bindtap="recognizeFieldFromEvent"
+        >
+          拍照识别填入
+        </button>
+      </view>
       <textarea
         class="textarea compact-textarea"
-        placeholder="正确答案"
+        placeholder="{{createMode === 'record' ? '从记录填入答案，也可以手动修改' : createMode === 'photo' ? '拍照识别答案，也可以手动修改' : '手动输入答案'}}"
         value="{{answer}}"
         bindinput="onAnswerInput"
       />
@@ -32,9 +76,31 @@
 
     <view class="field">
       <text class="field-label">解析</text>
+      <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
+        <picker
+          wx:if="{{createMode === 'record' && importRecordOptions.length}}"
+          mode="selector"
+          range="{{importRecordOptions}}"
+          range-key="label"
+          data-field="analysis"
+          bindchange="onRecordImportChange"
+        >
+          <view class="field-tool-btn">从记录填入</view>
+        </picker>
+        <button wx:elif="{{createMode === 'record'}}" class="field-tool-btn" bindtap="showNoRecordsTip">从记录填入</button>
+        <button
+          wx:if="{{createMode === 'photo'}}"
+          class="field-tool-btn"
+          data-field="analysis"
+          loading="{{recognizingField === 'analysis'}}"
+          bindtap="recognizeFieldFromEvent"
+        >
+          拍照识别填入
+        </button>
+      </view>
       <textarea
         class="textarea compact-textarea"
-        placeholder="错误原因和解题思路"
+        placeholder="{{createMode === 'record' ? '从记录填入解析，也可以手动修改' : createMode === 'photo' ? '拍照识别解析，也可以手动修改' : '手动输入解析'}}"
         value="{{analysis}}"
         bindinput="onAnalysisInput"
       />

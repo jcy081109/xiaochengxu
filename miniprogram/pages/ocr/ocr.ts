@@ -1,4 +1,5 @@
 import { uploadImageForOcr } from '../../utils/request'
+import { saveOcrHistory } from '../../utils/ocr-history'
 
 Page({
   data: {
@@ -63,6 +64,7 @@ Page({
         ocrLines: result.lines || [],
         serverMessage: result.message || 'OCR 识别完成'
       })
+      saveOcrHistory(result.text, imagePath)
     } catch (_error) {
       this.setData({
         errorMsg: '无法连接本地 Flask 服务，请确认后端已经启动。'

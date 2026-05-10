@@ -2,6 +2,29 @@
   margin-top: 28rpx;
 }
 
+.field-tools {
+  display: flex;
+  gap: 16rpx;
+  margin-bottom: 14rpx;
+}
+
+.field-tools picker {
+  flex: 1;
+}
+
+.field-tool-btn {
+  flex: 1;
+  min-height: 60rpx;
+  padding: 0 18rpx;
+  border: 2rpx solid var(--primary-color);
+  border-radius: 999rpx;
+  background: transparent;
+  color: var(--primary-color);
+  font-size: 24rpx;
+  line-height: 56rpx;
+  text-align: center;
+}
+
 .compact-textarea {
   min-height: 220rpx;
 }
@@ -15,4 +38,8 @@
 
 .switch-label {
   margin-bottom: 0;
+}
+
+.import-empty {
+  padding: 22rpx 0 0;
 }

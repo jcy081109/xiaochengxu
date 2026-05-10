@@ -1,3 +1,5 @@
 Flask==3.0.3
 Werkzeug==3.0.3
 PaddleOCR>=2.8.1
+paddlepaddle>=3.3.1
+rapidocr_onnxruntime>=1.2.3

@@ -94,7 +94,19 @@ Page({
 
   createMistake() {
     wx.navigateTo({
-      url: '/pages/mistake-editor/mistake-editor'
+      url: '/pages/mistake-editor/mistake-editor?mode=manual'
+    })
+  },
+
+  importFromRecords() {
+    wx.navigateTo({
+      url: '/pages/mistake-editor/mistake-editor?mode=record'
+    })
+  },
+
+  createFromPhoto() {
+    wx.navigateTo({
+      url: '/pages/mistake-editor/mistake-editor?mode=photo'
     })
   },
 
