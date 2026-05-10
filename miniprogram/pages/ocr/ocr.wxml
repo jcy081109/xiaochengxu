@@ -16,7 +16,7 @@
 
     <block wx:if="{{imagePath}}">
       <image class="preview-image" src="{{imagePath}}" mode="aspectFit"></image>
-      <button class="primary-btn" loading="{{loading}}" bindtap="recognizeImage">开始识别</button>
+      <button class="primary-btn" bindtap="recognizeImage">开始识别</button>
       <button class="secondary-btn" bindtap="clearResult">清空结果</button>
     </block>
 
@@ -48,7 +48,17 @@
         </view>
         <text class="pill">{{ocrLines.length}} 行</text>
       </view>
-      <text class="ocr-preview">{{ocrText}}</text>
+      <scroll-view class="ocr-scroll" scroll-y>
+        <view class="formatted-result">
+          <view
+            class="ocr-line ocr-{{item.type}}"
+            wx:for="{{formattedLines}}"
+            wx:key="id"
+          >
+            <text>{{item.text}}</text>
+          </view>
+        </view>
+      </scroll-view>
       <view class="result-actions">
         <button class="primary-btn" bindtap="goToEditor">保存为笔记</button>
         <button class="secondary-btn" bindtap="goToMistakeEditor">保存为错题</button>

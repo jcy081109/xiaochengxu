@@ -73,19 +73,40 @@
   color: var(--muted-color);
 }
 
-.ocr-preview {
-  display: block;
-  max-height: 560rpx;
+.ocr-scroll {
+  height: 560rpx;
   margin-top: 22rpx;
-  padding: 22rpx;
   border-radius: 16rpx;
   background: #f7f8f6;
+  overflow: hidden;
+}
+
+.formatted-result {
+  padding: 20rpx 22rpx 24rpx;
+}
+
+.ocr-line {
+  display: block;
+  padding: 10rpx 0;
   color: var(--text-color);
   font-size: 28rpx;
-  line-height: 1.75;
-  white-space: pre-wrap;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.ocr-heading {
+  margin-top: 10rpx;
+  padding-top: 18rpx;
+  color: var(--primary-color);
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.ocr-list {
+  padding-left: 18rpx;
+  border-left: 6rpx solid var(--primary-soft);
 }
 
 .result-actions {
-  margin-top: 6rpx;
+  margin-top: 18rpx;
 }
