@@ -1,42 +1,130 @@
 .home-page {
-  display: flex;
-  flex-direction: column;
-  gap: 24rpx;
   background:
-    radial-gradient(circle at top left, rgba(217, 152, 79, 0.18), transparent 36%),
-    linear-gradient(180deg, #f3ead9 0%, #f7f4ee 42%, #f7f4ee 100%);
+    linear-gradient(180deg, #edf5f1 0%, #f6f7f4 38%, #f6f7f4 100%);
 }
 
-.hero {
-  margin-top: 16rpx;
+.home-header {
+  padding-top: 20rpx;
 }
 
-.hero-eyebrow {
-  display: inline-block;
-  margin-bottom: 18rpx;
-  padding: 8rpx 18rpx;
-  border-radius: 999rpx;
-  background: rgba(31, 92, 74, 0.1);
-  color: var(--primary-color);
-  font-size: 24rpx;
-  font-weight: 700;
-  letter-spacing: 2rpx;
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12rpx;
+  margin-bottom: 22rpx;
 }
 
-.hero-title {
+.stat-card {
+  min-height: 104rpx;
+  padding: 16rpx 8rpx;
+  border: 1rpx solid var(--border-color);
+  border-radius: 18rpx;
+  background: rgba(255, 255, 255, 0.92);
+  text-align: center;
+}
+
+.stat-alert {
+  background: var(--warning-soft);
+  border-color: #efd1a8;
+}
+
+.stat-number {
   display: block;
-  margin-bottom: 16rpx;
-  font-size: 52rpx;
+  color: var(--text-color);
+  font-size: 36rpx;
   line-height: 1.2;
+  font-weight: 800;
+}
+
+.stat-label {
+  display: block;
+  margin-top: 8rpx;
+  color: var(--muted-color);
+  font-size: 21rpx;
+}
+
+.primary-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24rpx;
+  min-height: 250rpx;
+  background: #ffffff;
+}
+
+.task-copy {
+  flex: 1;
+}
+
+.task-kicker {
+  display: inline-flex;
+  align-items: center;
+  min-height: 42rpx;
+  padding: 0 16rpx;
+  border-radius: 999rpx;
+  background: var(--primary-soft);
+  color: var(--primary-color);
+  font-size: 22rpx;
   font-weight: 700;
 }
 
-.module-panel {
-  display: flex;
-  flex-direction: column;
-  gap: 14rpx;
+.task-title {
+  display: block;
+  margin-top: 18rpx;
+  color: var(--text-color);
+  font-size: 38rpx;
+  line-height: 1.25;
+  font-weight: 800;
 }
 
-.waiting-panel {
-  background: linear-gradient(180deg, #fffdf8 0%, #f7f0e1 100%);
+.task-desc {
+  display: block;
+  margin-top: 12rpx;
+  color: var(--muted-color);
+  font-size: 25rpx;
+  line-height: 1.55;
+}
+
+.task-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 112rpx;
+  height: 112rpx;
+  border-radius: 28rpx;
+  background: var(--primary-color);
+  color: #ffffff;
+  font-size: 46rpx;
+  font-weight: 800;
+}
+
+.task-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18rpx;
+  margin-top: 22rpx;
+}
+
+.task-card {
+  min-height: 250rpx;
+}
+
+.small-mark {
+  width: 72rpx;
+  height: 72rpx;
+  border-radius: 20rpx;
+  background: var(--accent-soft);
+  color: var(--accent-color);
+  font-size: 32rpx;
+}
+
+.warning-mark {
+  background: var(--warning-soft);
+  color: var(--warning-color);
+}
+
+.compact-title {
+  margin-top: 18rpx;
+  font-size: 31rpx;
 }

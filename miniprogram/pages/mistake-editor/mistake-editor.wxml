@@ -1,7 +1,16 @@
-<view class="page">
-  <view class="panel">
-    <text class="section-title">{{isEdit ? '编辑错题' : modeTitle}}</text>
-    <text class="section-desc">{{isEdit ? '修改题目、答案、解析、标签和掌握状态。' : modeDesc}}</text>
+<view class="page form-page">
+  <view class="page-header">
+    <text class="page-kicker">错题录入</text>
+    <text class="page-title">{{isEdit ? '编辑错题' : modeTitle}}</text>
+    <text class="page-desc">{{isEdit ? '修改题目、答案、解析、标签和掌握状态。' : modeDesc}}</text>
+  </view>
+
+  <view class="panel mode-panel" wx:if="{{!isEdit}}">
+    <text class="mode-name">{{modeTitle}}</text>
+    <text class="mode-copy">{{modeHelpText}}</text>
+  </view>
+
+  <view class="panel form-panel">
 
     <view class="field">
       <text class="field-label">科目</text>
@@ -11,8 +20,9 @@
     </view>
 
     <view class="field">
-      <text class="field-label">题目</text>
-      <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
+      <view class="field-head">
+        <text class="field-label">题目</text>
+        <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
         <picker
           wx:if="{{createMode === 'record' && importRecordOptions.length}}"
           mode="selector"
@@ -33,6 +43,7 @@
         >
           拍照识别填入
         </button>
+        </view>
       </view>
       <textarea
         class="textarea"
@@ -43,8 +54,9 @@
     </view>
 
     <view class="field">
-      <text class="field-label">答案</text>
-      <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
+      <view class="field-head">
+        <text class="field-label">答案</text>
+        <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
         <picker
           wx:if="{{createMode === 'record' && importRecordOptions.length}}"
           mode="selector"
@@ -65,6 +77,7 @@
         >
           拍照识别填入
         </button>
+        </view>
       </view>
       <textarea
         class="textarea compact-textarea"
@@ -75,8 +88,9 @@
     </view>
 
     <view class="field">
-      <text class="field-label">解析</text>
-      <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
+      <view class="field-head">
+        <text class="field-label">解析</text>
+        <view class="field-tools" wx:if="{{createMode !== 'manual'}}">
         <picker
           wx:if="{{createMode === 'record' && importRecordOptions.length}}"
           mode="selector"
@@ -97,6 +111,7 @@
         >
           拍照识别填入
         </button>
+        </view>
       </view>
       <textarea
         class="textarea compact-textarea"

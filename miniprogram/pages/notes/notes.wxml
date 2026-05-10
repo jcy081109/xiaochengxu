@@ -1,43 +1,55 @@
-<view class="page">
-  <view class="panel">
-    <text class="section-title">学习笔记</text>
-    <text class="section-desc">搜索、筛选、查看、编辑和删除本地学习笔记。</text>
+<view class="page list-page">
+  <view class="page-header list-header">
+    <text class="page-kicker">学习笔记</text>
+    <text class="page-title">已整理的学习资料</text>
+    <text class="page-desc">按关键词和分类快速找到笔记，也可以直接新建空白笔记。</text>
+  </view>
 
-    <view class="filter-group">
-      <text class="field-label">关键词</text>
+  <view class="panel toolbar-panel">
+    <view class="search-box">
       <input
-        class="input"
-        placeholder="按标题或内容搜索"
+        class="input search-input"
+        placeholder="搜索标题或内容"
         value="{{keyword}}"
         bindinput="onKeywordInput"
       />
     </view>
 
-    <view class="filter-group">
-      <text class="field-label">分类</text>
-      <picker mode="selector" range="{{categoryOptions}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
-        <view class="picker-box">{{categoryOptions[categoryIndex]}}</view>
+    <view class="toolbar-row">
+      <picker class="toolbar-picker" mode="selector" range="{{categoryOptions}}" value="{{categoryIndex}}" bindchange="onCategoryChange">
+        <view class="picker-box compact-picker">{{categoryOptions[categoryIndex]}}</view>
       </picker>
+      <button class="text-btn" bindtap="clearFilters">清空</button>
     </view>
 
-    <button class="primary-btn" bindtap="createManualNote">新建空白笔记</button>
-    <button class="secondary-btn" bindtap="clearFilters">清空筛选</button>
+    <button class="primary-btn create-btn" bindtap="createManualNote">新建空白笔记</button>
+  </view>
+
+  <view class="list-summary">
+    <text class="meta-text">当前显示 {{notes.length}} 条笔记</text>
   </view>
 
   <block wx:if="{{notes.length}}">
     <view class="panel note-card" wx:for="{{notes}}" wx:key="id">
-      <view data-id="{{item.id}}" bindtap="openDetail">
+      <view class="card-body" data-id="{{item.id}}" bindtap="openDetail">
+        <view class="card-topline">
+          <text class="pill">{{item.category}}</text>
+          <text class="note-meta">{{item.displayTime}}</text>
+        </view>
         <text class="note-title">{{item.title}}</text>
-        <text class="note-meta">{{item.category}} | {{item.displayTime}}</text>
         <text class="note-content">{{item.preview}}</text>
       </view>
-      <button class="delete-btn" data-id="{{item.id}}" bindtap="deleteNote">删除</button>
+      <view class="card-actions">
+        <button class="text-btn" data-id="{{item.id}}" bindtap="openDetail">查看</button>
+        <button class="text-btn delete-text" data-id="{{item.id}}" bindtap="deleteNote">删除</button>
+      </view>
     </view>
   </block>
 
   <block wx:else>
-    <view class="panel">
+    <view class="panel empty-panel">
       <text class="empty-text">没有找到匹配的笔记</text>
+      <button class="primary-btn" bindtap="createManualNote">新建第一条笔记</button>
     </view>
   </block>
 </view>

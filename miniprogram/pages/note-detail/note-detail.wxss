@@ -1,34 +1,46 @@
+.detail-page {
+  background: #f6f7f4;
+}
+
+.detail-panel {
+  margin-top: 12rpx;
+}
+
 .note-title {
   display: block;
   font-size: 42rpx;
-  font-weight: 700;
+  font-weight: 800;
   line-height: 1.3;
+}
+
+.detail-meta-row {
+  display: flex;
+  align-items: center;
+  gap: 16rpx;
+  margin-top: 18rpx;
 }
 
 .note-meta {
   display: block;
-  margin-top: 16rpx;
   font-size: 24rpx;
   color: var(--muted-color);
 }
 
 .preview-image {
   width: 100%;
-  height: 360rpx;
+  height: 340rpx;
   margin-top: 28rpx;
-  border-radius: 24rpx;
-  background: #efe7da;
+  border-radius: 18rpx;
+  background: #e8ece8;
 }
 
 .note-content {
   display: block;
   margin-top: 28rpx;
-  font-size: 30rpx;
+  padding: 24rpx;
+  border-radius: 16rpx;
+  background: #f8faf8;
+  font-size: 29rpx;
   line-height: 1.8;
   white-space: pre-wrap;
-}
-
-.detail-delete {
-  color: var(--danger-color);
-  border-color: #d9a4a4;
 }

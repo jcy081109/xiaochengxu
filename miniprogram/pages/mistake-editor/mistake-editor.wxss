@@ -1,27 +1,64 @@
+.form-page {
+  background: linear-gradient(180deg, #f7faf8 0%, #f6f7f4 36%);
+}
+
+.mode-panel {
+  border-color: #bfd8cd;
+  background: linear-gradient(180deg, #ffffff 0%, #eef7f2 100%);
+}
+
+.mode-name {
+  display: block;
+  color: var(--primary-color);
+  font-size: 30rpx;
+  font-weight: 800;
+}
+
+.mode-copy {
+  display: block;
+  margin-top: 10rpx;
+  color: var(--muted-color);
+  font-size: 25rpx;
+  line-height: 1.55;
+}
+
 .field {
   margin-top: 28rpx;
 }
 
+.field-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16rpx;
+  margin-bottom: 12rpx;
+}
+
+.field-head .field-label {
+  margin-bottom: 0;
+}
+
 .field-tools {
   display: flex;
-  gap: 16rpx;
-  margin-bottom: 14rpx;
+  justify-content: flex-end;
+  flex: 1;
 }
 
 .field-tools picker {
-  flex: 1;
+  flex: 0 1 auto;
 }
 
 .field-tool-btn {
-  flex: 1;
-  min-height: 60rpx;
+  min-height: 58rpx;
+  margin: 0;
   padding: 0 18rpx;
-  border: 2rpx solid var(--primary-color);
-  border-radius: 999rpx;
-  background: transparent;
+  border: none;
+  border-radius: 14rpx;
+  background: var(--primary-soft);
   color: var(--primary-color);
-  font-size: 24rpx;
-  line-height: 56rpx;
+  font-size: 23rpx;
+  font-weight: 700;
+  line-height: 58rpx;
   text-align: center;
 }
 
@@ -34,6 +71,9 @@
   align-items: center;
   justify-content: space-between;
   margin-top: 28rpx;
+  padding: 22rpx 24rpx;
+  border-radius: 16rpx;
+  background: #f8faf8;
 }
 
 .switch-label {

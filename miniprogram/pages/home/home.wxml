@@ -1,26 +1,49 @@
 <view class="page home-page">
-  <view class="hero panel">
-    <text class="hero-eyebrow">学习助手</text>
-    <text class="hero-title">把图片整理成结构化学习资料</text>
-    <text class="section-desc">
-      项目包含笔记和错题两个模块，可以识别图片文字、整理学习笔记，并记录错题解析与掌握状态。
-    </text>
+  <view class="page-header home-header">
+    <text class="page-kicker">学习助手</text>
+    <text class="page-title">把识别、整理、复习放在一条线上</text>
+    <text class="page-desc">先识别资料，再沉淀笔记和错题，回到这里快速继续下一步。</text>
   </view>
 
-  <view class="panel module-panel">
-    <text class="section-title">学习笔记</text>
-    <text class="section-desc">
-      从课堂照片、截图和文档图片中提取文字，整理后保存为可编辑的学习笔记。
-    </text>
-    <button class="primary-btn" bindtap="goToOcr">开始识别</button>
-    <button class="secondary-btn" bindtap="goToNotes">打开笔记</button>
+  <view class="stats-grid">
+    <view class="stat-card">
+      <text class="stat-number">{{noteCount}}</text>
+      <text class="stat-label">笔记</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-number">{{mistakeCount}}</text>
+      <text class="stat-label">错题</text>
+    </view>
+    <view class="stat-card stat-alert">
+      <text class="stat-number">{{openMistakeCount}}</text>
+      <text class="stat-label">待复习</text>
+    </view>
+    <view class="stat-card">
+      <text class="stat-number">{{historyCount}}</text>
+      <text class="stat-label">识别记录</text>
+    </view>
   </view>
 
-  <view class="panel module-panel waiting-panel">
-    <text class="section-title">错题本</text>
-    <text class="section-desc">
-      收集错题、答案、解析和标签，按掌握状态进行复习管理。
-    </text>
-    <button class="secondary-btn" bindtap="goToMistakes">进入错题本</button>
+  <view class="panel primary-task" bindtap="goToOcr">
+    <view class="task-copy">
+      <text class="task-kicker">最快入口</text>
+      <text class="task-title">拍照或选图识别</text>
+      <text class="task-desc">适合课堂板书、截图、讲义和答案页，识别后可继续保存为笔记或错题。</text>
+    </view>
+    <view class="task-mark">识</view>
+  </view>
+
+  <view class="task-grid">
+    <view class="panel task-card" bindtap="goToNotes">
+      <text class="task-mark small-mark">记</text>
+      <text class="task-title compact-title">整理笔记</text>
+      <text class="task-desc">查看、搜索和编辑已经保存的学习内容。</text>
+    </view>
+
+    <view class="panel task-card" bindtap="goToMistakes">
+      <text class="task-mark small-mark warning-mark">错</text>
+      <text class="task-title compact-title">复习错题</text>
+      <text class="task-desc">按科目和掌握状态筛选，集中处理未掌握内容。</text>
+    </view>
   </view>
 </view>

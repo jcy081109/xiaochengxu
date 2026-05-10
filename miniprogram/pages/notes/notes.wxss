@@ -1,38 +1,88 @@
-.filter-group {
-  margin-top: 24rpx;
+.list-page {
+  background: #f6f7f4;
+}
+
+.toolbar-panel {
+  padding-bottom: 24rpx;
+}
+
+.search-input {
+  background: #f8faf8;
+}
+
+.toolbar-row {
+  display: flex;
+  align-items: center;
+  gap: 18rpx;
+  margin-top: 18rpx;
+}
+
+.toolbar-picker {
+  flex: 1;
+}
+
+.compact-picker {
+  height: 72rpx;
+  min-height: 72rpx;
+  padding: 18rpx 22rpx;
+  line-height: 34rpx;
+}
+
+.create-btn {
+  margin-top: 18rpx;
+}
+
+.list-summary {
+  padding: 22rpx 6rpx 0;
 }
 
 .note-card {
-  margin-top: 24rpx;
+  margin-top: 18rpx;
+  padding-bottom: 18rpx;
+}
+
+.card-topline {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18rpx;
 }
 
 .note-title {
   display: block;
-  font-size: 34rpx;
-  font-weight: 700;
+  margin-top: 18rpx;
+  font-size: 33rpx;
+  line-height: 1.35;
+  font-weight: 800;
 }
 
 .note-meta {
-  display: block;
-  margin-top: 10rpx;
-  font-size: 24rpx;
+  flex-shrink: 0;
+  font-size: 23rpx;
   color: var(--muted-color);
 }
 
 .note-content {
   display: block;
-  margin-top: 18rpx;
-  font-size: 28rpx;
-  line-height: 1.7;
-  color: var(--text-color);
+  margin-top: 12rpx;
+  font-size: 27rpx;
+  line-height: 1.65;
+  color: var(--muted-color);
 }
 
-.delete-btn {
-  width: 100%;
-  margin-top: 24rpx;
-  border: none;
-  border-radius: 999rpx;
-  background: #f7dede;
+.card-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 30rpx;
+  margin-top: 20rpx;
+  padding-top: 18rpx;
+  border-top: 1rpx solid #edf0ec;
+}
+
+.delete-text {
   color: var(--danger-color);
-  font-size: 28rpx;
+}
+
+.empty-panel {
+  margin-top: 18rpx;
 }

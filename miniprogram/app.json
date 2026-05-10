@@ -12,8 +12,8 @@
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "学习助手",
-    "navigationBarBackgroundColor": "#f7f4ee",
-    "backgroundColor": "#f7f4ee",
+    "navigationBarBackgroundColor": "#f6f7f4",
+    "backgroundColor": "#f6f7f4",
     "backgroundTextStyle": "light"
   },
   "style": "v2",

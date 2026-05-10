@@ -1,44 +1,54 @@
-<view class="page">
-  <view class="panel">
-    <text class="section-title">错题本</text>
-    <text class="section-desc">记录错题、答案、解析和标签，集中复习未掌握内容。</text>
-    <button class="primary-btn" bindtap="importFromRecords">从记录创建</button>
-    <button class="secondary-btn" bindtap="createFromPhoto">拍照创建</button>
-    <button class="secondary-btn" bindtap="createMistake">手动创建</button>
+<view class="page list-page">
+  <view class="page-header">
+    <text class="page-kicker">错题本</text>
+    <text class="page-title">记录问题，跟踪掌握状态</text>
+    <text class="page-desc">先选择录入方式，再按科目和状态复习错题。</text>
   </view>
 
-  <view class="panel filter-panel">
-    <text class="section-title filter-title">筛选</text>
-    <view class="filter-group">
-      <text class="field-label">关键词</text>
-      <input
-        class="input"
-        placeholder="搜索题目、答案、解析或标签"
-        value="{{keyword}}"
-        bindinput="onKeywordInput"
-      />
+  <view class="create-grid">
+    <view class="panel create-card primary-create" bindtap="importFromRecords">
+      <text class="create-tag">推荐</text>
+      <text class="create-title">从记录创建</text>
+      <text class="create-desc">从已保存笔记或 OCR 识别记录导入题目、答案、解析。</text>
     </view>
+    <view class="panel create-card" bindtap="createFromPhoto">
+      <text class="create-tag blue-tag">拍照</text>
+      <text class="create-title">拍照创建</text>
+      <text class="create-desc">分别拍照识别题目、答案或解析，再手动校对。</text>
+    </view>
+    <view class="panel create-card" bindtap="createMistake">
+      <text class="create-tag plain-tag">手动</text>
+      <text class="create-title">手动创建</text>
+      <text class="create-desc">直接输入完整错题内容，适合少量补录。</text>
+    </view>
+  </view>
 
-    <view class="filter-group">
-      <text class="field-label">科目</text>
-      <picker mode="selector" range="{{subjectOptions}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
-        <view class="picker-box">{{subjectOptions[subjectIndex]}}</view>
+  <view class="panel toolbar-panel">
+    <input
+      class="input search-input"
+      placeholder="搜索题目、答案、解析或标签"
+      value="{{keyword}}"
+      bindinput="onKeywordInput"
+    />
+
+    <view class="toolbar-row">
+      <picker class="toolbar-picker" mode="selector" range="{{subjectOptions}}" value="{{subjectIndex}}" bindchange="onSubjectChange">
+        <view class="picker-box compact-picker">{{subjectOptions[subjectIndex]}}</view>
       </picker>
-    </view>
-
-    <view class="filter-group">
-      <text class="field-label">掌握状态</text>
-      <picker mode="selector" range="{{masteredOptions}}" value="{{masteredIndex}}" bindchange="onMasteredChange">
-        <view class="picker-box">{{masteredOptions[masteredIndex]}}</view>
+      <picker class="toolbar-picker" mode="selector" range="{{masteredOptions}}" value="{{masteredIndex}}" bindchange="onMasteredChange">
+        <view class="picker-box compact-picker">{{masteredOptions[masteredIndex]}}</view>
       </picker>
+      <button class="text-btn" bindtap="clearFilters">清空</button>
     </view>
+  </view>
 
-    <button class="secondary-btn" bindtap="clearFilters">清空筛选</button>
+  <view class="list-summary">
+    <text class="meta-text">当前显示 {{mistakes.length}} 条错题</text>
   </view>
 
   <block wx:if="{{mistakes.length}}">
     <view class="panel mistake-card" wx:for="{{mistakes}}" wx:key="id">
-      <view data-id="{{item.id}}" bindtap="openDetail">
+      <view class="card-body" data-id="{{item.id}}" bindtap="openDetail">
         <view class="mistake-header">
           <text class="mistake-subject">{{item.subject}}</text>
           <text class="mistake-status {{item.mastered ? 'status-done' : 'status-open'}}">{{item.masteredLabel}}</text>
@@ -46,10 +56,12 @@
         <text class="mistake-question">{{item.preview}}</text>
         <text class="mistake-meta">{{item.tagsText}} | {{item.displayTime}}</text>
       </view>
-      <button class="secondary-btn" data-id="{{item.id}}" bindtap="toggleMastered">
-        {{item.mastered ? '标记为未掌握' : '标记为已掌握'}}
-      </button>
-      <button class="delete-btn" data-id="{{item.id}}" bindtap="deleteMistake">删除</button>
+      <view class="card-actions">
+        <button class="text-btn" data-id="{{item.id}}" bindtap="toggleMastered">
+          {{item.mastered ? '设为未掌握' : '设为已掌握'}}
+        </button>
+        <button class="text-btn delete-text" data-id="{{item.id}}" bindtap="deleteMistake">删除</button>
+      </view>
     </view>
   </block>
 

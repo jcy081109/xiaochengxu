@@ -1,0 +1,5 @@
+node_modules/
+server/venv/
+server/__pycache__/
+server/services/__pycache__/
+server/uploads/

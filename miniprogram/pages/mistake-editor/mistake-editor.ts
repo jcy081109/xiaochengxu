@@ -38,6 +38,7 @@ Page({
     createMode: 'manual' as CreateMode,
     modeTitle: '新增错题',
     modeDesc: '手动填写题目、答案、解析、标签和掌握状态。',
+    modeHelpText: '当前只保留手动输入表单，适合直接整理完整错题。',
     isEdit: false
   },
 
@@ -98,15 +99,18 @@ Page({
     const modeText = {
       record: {
         modeTitle: '从记录创建',
-        modeDesc: '从已保存笔记或 OCR 识别结果中选择内容，分别填入题目、答案和解析。'
+        modeDesc: '从已保存笔记或 OCR 识别结果中选择内容，分别填入题目、答案和解析。',
+        modeHelpText: '当前只显示记录导入入口，适合把已有笔记或识别记录拆成错题。'
       },
       photo: {
         modeTitle: '拍照创建',
-        modeDesc: '对题目、答案或解析分别拍照识别，也可以手动修正识别结果。'
+        modeDesc: '对题目、答案或解析分别拍照识别，也可以手动修正识别结果。',
+        modeHelpText: '当前只显示拍照识别入口，适合分别补充题目、答案和解析。'
       },
       manual: {
         modeTitle: '手动创建',
-        modeDesc: '手动填写题目、答案、解析、标签和掌握状态。'
+        modeDesc: '手动填写题目、答案、解析、标签和掌握状态。',
+        modeHelpText: '当前只保留手动输入表单，适合直接整理完整错题。'
       }
     }[createMode]
 

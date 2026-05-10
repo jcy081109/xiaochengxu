@@ -1,11 +1,18 @@
-<view class="page">
-  <view class="panel">
-    <text class="section-title">图片输入</text>
-    <text class="section-desc">
-      选择照片或截图，上传到本地 Flask 服务，并使用 OCR 提取文字。
-    </text>
+<view class="page ocr-page">
+  <view class="page-header">
+    <text class="page-kicker">图片识别</text>
+    <text class="page-title">从图片提取文字</text>
+    <text class="page-desc">选择照片或截图，识别后可以继续保存为笔记或错题。</text>
+  </view>
 
-    <button class="primary-btn" bindtap="chooseImage">选择图片</button>
+  <view class="panel upload-panel">
+    <view class="panel-head">
+      <view>
+        <text class="section-title">1. 选择图片</text>
+        <text class="section-desc">支持照片、截图和文档图片。</text>
+      </view>
+      <button class="mini-action" bindtap="chooseImage">{{imagePath ? '更换' : '选择'}}</button>
+    </view>
 
     <block wx:if="{{imagePath}}">
       <image class="preview-image" src="{{imagePath}}" mode="aspectFit"></image>
@@ -14,7 +21,10 @@
     </block>
 
     <block wx:else>
-      <text class="empty-text">还没有选择图片</text>
+      <view class="empty-upload" bindtap="chooseImage">
+        <text class="empty-upload-title">还没有图片</text>
+        <text class="empty-upload-desc">点击这里选择一张待识别图片</text>
+      </view>
     </block>
   </view>
 
@@ -25,16 +35,24 @@
       <block wx:if="{{serverMessage}}">
         <text class="status-tip">{{serverMessage}}</text>
       </block>
+      <text class="status-tip">如果后端已经修改过，请先重启 Flask 后再重试。</text>
     </view>
   </block>
 
   <block wx:if="{{ocrText}}">
     <view class="panel status-panel">
-      <text class="section-title">识别结果</text>
-      <text class="section-desc">{{serverMessage}}</text>
+      <view class="panel-head">
+        <view>
+          <text class="section-title">2. 识别结果</text>
+          <text class="section-desc">{{serverMessage}}</text>
+        </view>
+        <text class="pill">{{ocrLines.length}} 行</text>
+      </view>
       <text class="ocr-preview">{{ocrText}}</text>
-      <button class="primary-btn" bindtap="goToEditor">保存为笔记</button>
-      <button class="secondary-btn" bindtap="goToMistakeEditor">保存为错题</button>
+      <view class="result-actions">
+        <button class="primary-btn" bindtap="goToEditor">保存为笔记</button>
+        <button class="secondary-btn" bindtap="goToMistakeEditor">保存为错题</button>
+      </view>
     </view>
   </block>
 </view>

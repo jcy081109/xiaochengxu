@@ -1,9 +1,15 @@
-<view class="page">
-  <view class="panel">
-    <text class="section-title">{{isEdit ? '编辑笔记' : '新建笔记'}}</text>
-    <text class="section-desc">
-      检查 OCR 识别结果，修正错误，补充标题和分类后保存为结构化笔记。
-    </text>
+<view class="page form-page">
+  <view class="page-header">
+    <text class="page-kicker">学习笔记</text>
+    <text class="page-title">{{isEdit ? '编辑笔记' : '新建笔记'}}</text>
+    <text class="page-desc">补充标题、分类和正文，保存后可以在笔记列表中继续搜索和编辑。</text>
+  </view>
+
+  <view class="panel form-panel">
+    <view class="form-hint">
+      <text class="hint-title">保存前检查</text>
+      <text class="hint-desc">OCR 文本可能有错字，建议先校对关键公式、英文和数字。</text>
+    </view>
 
     <block wx:if="{{imagePath}}">
       <image class="preview-image" src="{{imagePath}}" mode="aspectFit"></image>

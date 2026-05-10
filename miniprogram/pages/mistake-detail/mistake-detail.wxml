@@ -1,6 +1,6 @@
-<view class="page">
+<view class="page detail-page">
   <block wx:if="{{mistake}}">
-    <view class="panel">
+    <view class="panel detail-panel">
       <view class="detail-header">
         <text class="detail-subject">{{mistake.subject}}</text>
         <text class="detail-status {{mistake.mastered ? 'status-done' : 'status-open'}}">{{masteredLabel}}</text>
@@ -27,7 +27,7 @@
       <button class="secondary-btn" bindtap="toggleMastered">
         {{mistake.mastered ? '标记为未掌握' : '标记为已掌握'}}
       </button>
-      <button class="secondary-btn detail-delete" bindtap="deleteMistake">删除错题</button>
+      <button class="secondary-btn danger-btn" bindtap="deleteMistake">删除错题</button>
     </view>
   </block>
 
